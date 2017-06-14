@@ -1,0 +1,5 @@
+name = Islandora Custom Thumbnail
+description = Gives users the opportunity to provide an image to use as a thumbnail.
+dependencies[] = islandora
+version = 7.x-dev
+core = 7.x
