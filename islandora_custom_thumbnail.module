@@ -22,3 +22,15 @@ function islandora_custom_thumbnail_islandora_ingest_steps_alter(array &$steps, 
 		);
 	}
 }
+
+/**
+ * Implements hook_islandora_derivative_alter().
+ */
+function islandora_custom_thumbnail_islandora_derivative_alter(&$derivatives, AbstractObject $object = NULL, $ds_modified_params = array())
+{
+	foreach ($derivatives as $key => $derivative) {
+		if ($derivative['destination_dsid'] == 'TN') {
+			unset($derivatives[$key]);
+		}
+	}
+}
