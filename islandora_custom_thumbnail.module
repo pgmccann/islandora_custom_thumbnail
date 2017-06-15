@@ -8,29 +8,27 @@
 /**
  * Implements hook_islandora_ingest_steps_alter().
  */
-function islandora_custom_thumbnail_islandora_ingest_steps_alter(array &$steps, array &$form_state)
-{
-	if (isset($steps['xml_form_builder_metadata_step'])) {
-		$association = isset($steps['xml_form_builder_metadata_step']['args'][0]) ? $steps['xml_form_builder_metadata_step']['args'][0] : null;
-		$steps['islandora_custom_thumbnail_upload'] = array(
-			'type' => 'form',
-			'weight' => 20,
-			'form_id' => 'islandora_custom_thumbnail_file_form',
-			'args' => array(),
-			'file' => 'includes/file.form.inc',
-			'module' => 'islandora_custom_thumbnail',
-		);
-	}
+function islandora_custom_thumbnail_islandora_ingest_steps_alter(array &$steps, array &$form_state) {
+  if (isset($steps['xml_form_builder_metadata_step'])) {
+    $association = isset($steps['xml_form_builder_metadata_step']['args'][0]) ? $steps['xml_form_builder_metadata_step']['args'][0] : NULL;
+    $steps['islandora_custom_thumbnail_upload'] = array(
+      'type' => 'form',
+      'weight' => 20,
+      'form_id' => 'islandora_custom_thumbnail_file_form',
+      'args' => array(),
+      'file' => 'includes/file.form.inc',
+      'module' => 'islandora_custom_thumbnail',
+    );
+  }
 }
 
 /**
  * Implements hook_islandora_derivative_alter().
  */
-function islandora_custom_thumbnail_islandora_derivative_alter(&$derivatives, AbstractObject $object = NULL, $ds_modified_params = array())
-{
-	foreach ($derivatives as $key => $derivative) {
-		if ($derivative['destination_dsid'] == 'TN') {
-			unset($derivatives[$key]);
-		}
-	}
+function islandora_custom_thumbnail_islandora_derivative_alter(&$derivatives, AbstractObject $object = NULL, $ds_modified_params = array()) {
+  foreach ($derivatives as $key => $derivative) {
+    if ($derivative['destination_dsid'] == 'TN') {
+      unset($derivatives[$key]);
+    }
+  }
 }
