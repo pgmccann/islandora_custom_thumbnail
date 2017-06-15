@@ -49,7 +49,7 @@ function islandora_custom_thumbnail_file_form_submit(array &$form, array &$form_
 		$object = islandora_ingest_form_get_object($form_state);
 		$dsid = 'TN';
 		$datastream = isset($object[$dsid]) ? $object[$dsid] : $object->constructDatastream($dsid);
-		$datastream->label = 'TN';
+		$datastream->label = $dsid;
 		$datastream->mimeType = 'image/jpeg';
 		$file_path = file_save($file);
 		$datastream->setContentFromFile($file_path->uri);
