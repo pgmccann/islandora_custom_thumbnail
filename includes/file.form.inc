@@ -23,9 +23,9 @@ function islandora_custom_thumbnail_file_form(array $form, array &$form_state) {
       '#title' => t('Thumbnail Image'),
       '#description' => t('A JPG image file to be used as a thumbnail for the object. Click "Next" to skip this step and have the thumbnail generated as a derivative.'),
       '#upload_validators' => array(
-        'file_validate_extensions' => array('jpg', 'jpeg', 'JPG', 'JPEG')
-      )
-    )
+        'file_validate_extensions' => array('jpg', 'jpeg', 'JPG', 'JPEG'),
+      ),
+    ),
   );
 }
 
@@ -57,6 +57,6 @@ function islandora_custom_thumbnail_file_form_submit(array &$form, array &$form_
     }
     // To ensure the file is only used once, delete it.
     file_delete($file);
-      unset($form_state['values']['file']);
+    unset($form_state['values']['file']);
   }
 }
