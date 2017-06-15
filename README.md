@@ -1,4 +1,4 @@
-# Islandora Custom Thumbnail Module
+# Islandora Custom Thumbnail Module [![Build Status](https://travis-ci.org/pgmccann/islandora_custom_thumbnail.svg?branch=master)](https://travis-ci.org/pgmccann/islandora_custom_thumbnail)
 
 ## Introduction
 
