@@ -4,7 +4,7 @@
 
 Adds a step at the end of the ingest process asking users if they wish to upload a thumbnail. Also suppresses the regeneration of thumbnails as derivatives.
 
-This module needs further testing - so far I have only tried it with basic images.
+This module needs further testing - so far it has only been tested with basic images.
 
 ## Requirements
 
