@@ -9,16 +9,16 @@
   * Implements hook_menu().
   */
 function islandora_custom_thumbnail_menu() {
-	return array(
-   	'admin/islandora/tools/islandora_custom_thumbnail' => array(
-     	'title' => 'Islandora Custom Thumbnail',
-     	'description' => 'Configure settings for the Islandora Custom Thumbnail module.',
-     	'page callback' => 'drupal_get_form',
-     	'page arguments' => array('islandora_custom_thumbnail_admin_settings'),
-     	'access arguments' => array('administer site configuration'),
-     	'file' => 'includes/admin.form.inc',
-   	),
-	);
+  return array(
+    'admin/islandora/tools/islandora_custom_thumbnail' => array(
+      'title' => 'Islandora Custom Thumbnail',
+      'description' => 'Configure settings for the Islandora Custom Thumbnail module.',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('islandora_custom_thumbnail_admin_settings'),
+      'access arguments' => array('administer site configuration'),
+      'file' => 'includes/admin.form.inc',
+    ),
+  );
 }
 
 /**
@@ -43,7 +43,7 @@ function islandora_custom_thumbnail_islandora_ingest_steps_alter(array &$steps, 
  */
 function islandora_custom_thumbnail_islandora_derivative_alter(&$derivatives, AbstractObject $object = NULL, $ds_modified_params = array()) {
   foreach ($derivatives as $key => $derivative) {
-    if ($derivative['destination_dsid'] == 'TN' && variable_get('islandora_custom_thumbnail_suppress_thumbnail_regeneration', True)) {
+    if ($derivative['destination_dsid'] == 'TN' && variable_get('islandora_custom_thumbnail_suppress_thumbnail_regeneration', TRUE)) {
       unset($derivatives[$key]);
     }
   }
